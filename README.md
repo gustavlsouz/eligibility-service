@@ -42,26 +42,29 @@ curl --location 'http://localhost:3000/api/eligibility/validation' \
 ### Exemplo de cenário elegível
 
 ```shell
-{
+curl --location 'http://localhost:3000/api/eligibility/validation' \
+--header 'x-trace-id: 884ddcf1-155d-47c1-b844-9aeae0c0f75b' \
+--header 'Content-Type: application/json' \
+--data '{
     "numeroDoDocumento": "14041737706",
     "tipoDeConexao": "bifasico",
     "classeDeConsumo": "comercial",
     "modalidadeTarifaria": "convencional",
     "historicoDeConsumo": [
-        3878,
-        9760,
-        5976,
-        2797,
-        2481,
-        5731,
-        7538,
-        4392,
-        7859,
-        4160,
-        6941,
+        3878, 
+        9760, 
+        5976, 
+        2797, 
+        2481, 
+        5731, 
+        7538, 
+        4392, 
+        7859, 
+        4160, 
+        6941, 
         4597 
     ]
-}
+}'
 ```
 
 #### Resposta esperada
