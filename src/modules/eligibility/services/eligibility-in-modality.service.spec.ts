@@ -5,6 +5,7 @@ import {
   ConnectionType,
   ConsumerClass,
   IneligibleReasons,
+  ConsumerSubclass,
   TariffModality,
 } from '../../../crosscut/constants';
 import { Metadata } from '../../../crosscut/metadata';
@@ -25,6 +26,7 @@ describe('EligibilityInModality', () => {
       numeroDoDocumento: '14041737706',
       tipoDeConexao: ConnectionType.TwoPhase,
       classeDeConsumo: ConsumerClass.Commercial,
+      subclasseDeConsumo: ConsumerSubclass.commercial,
       modalidadeTarifaria: TariffModality.Conventional,
       historicoDeConsumo: [
         3878, // mes atual

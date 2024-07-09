@@ -11,6 +11,7 @@ import { Metadata } from '../../../crosscut/metadata';
 import { HttpException, HttpStatus } from '@nestjs/common';
 import { IneligibleReasons } from '../../../crosscut/constants';
 import { mocks } from '../../../../test/mocks';
+import { EligibilityInConsumptionSubclass } from './eligibility-in-consumption-subclass.service';
 
 describe('EligibilityService', () => {
   let eligibilityService: EligibilityService;
@@ -24,6 +25,7 @@ describe('EligibilityService', () => {
   const EligibilityInConsumptionMock = { execute: jest.fn() };
   const EligibilityInModalityMock = { execute: jest.fn() };
   const CalculateAnnualSavingsMock = { execute: jest.fn() };
+  const EligibilityInConsumptionSubclassMock = { execute: jest.fn() };
   let metadata: Metadata;
 
   beforeEach(async () => {
@@ -51,6 +53,10 @@ describe('EligibilityService', () => {
         {
           provide: CalculateAnnualSavings,
           useValue: CalculateAnnualSavingsMock,
+        },
+        {
+          provide: EligibilityInConsumptionSubclass,
+          useValue: EligibilityInConsumptionSubclassMock,
         },
       ],
     }).compile();
@@ -109,6 +115,11 @@ describe('EligibilityService', () => {
         IneligibleReasons.UnacceptableModality,
       ),
     );
+    EligibilityInConsumptionSubclassMock.execute.mockReturnValue(
+      new EligibilityResponse().appendIneligibleReason(
+        IneligibleReasons.SubclassUnacceptable,
+      ),
+    );
 
     const response = eligibilityService.execute(
       mocks.ineligibleInAllCriterias.input as ClientData,
@@ -134,6 +145,9 @@ describe('EligibilityService', () => {
       new EligibilityResponse(),
     );
     EligibilityInModalityMock.execute.mockReturnValue(
+      new EligibilityResponse(),
+    );
+    EligibilityInConsumptionSubclassMock.execute.mockReturnValue(
       new EligibilityResponse(),
     );
     CalculateAnnualSavingsMock.execute.mockReturnValue(

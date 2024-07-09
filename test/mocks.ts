@@ -5,6 +5,7 @@ export const mocks = {
       tipoDeConexao: 'bifasico',
       classeDeConsumo: 'comercial',
       modalidadeTarifaria: 'convencional',
+      subclasseDeConsumo: 'administracaoCondominial',
       historicoDeConsumo: [
         3878, // mes atual
         9760, // mes anterior
@@ -31,6 +32,7 @@ export const mocks = {
       tipoDeConexao: 'bifasico',
       classeDeConsumo: 'rural',
       modalidadeTarifaria: 'verde',
+      subclasseDeConsumo: 'agropecuariaRural',
       historicoDeConsumo: [
         3878, // mes atual
         9760, // mes anterior
@@ -54,7 +56,7 @@ export const mocks = {
   },
   ineligibleInAllCriterias: {
     input: {
-      numeroDoDocumento: '14041737706',
+      numeroDoDocumento: '14869969068',
       tipoDeConexao: 'bifasico',
       classeDeConsumo: 'rural',
       modalidadeTarifaria: 'verde',

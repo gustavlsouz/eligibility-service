@@ -8,6 +8,7 @@ import { CalculateAnnualSavings } from './calculate-annual-savings.service';
 import { logger } from '../../../crosscut/logger';
 import { Metadata } from '../../../crosscut/metadata';
 import { ServiceRule } from './service-rule';
+import { EligibilityInConsumptionSubclass } from './eligibility-in-consumption-subclass.service';
 
 @Injectable()
 export class EligibilityService {
@@ -18,11 +19,13 @@ export class EligibilityService {
     private readonly eligibilityInConsumption: EligibilityInConsumption,
     private readonly eligibilityInModality: EligibilityInModality,
     private readonly calculateAnnualSavings: CalculateAnnualSavings,
+    private readonly eligibilityInConsumptionSubclass: EligibilityInConsumptionSubclass,
   ) {
     this.serviceRules = [
       eligibilityInConsumptionClass,
       eligibilityInConsumption,
       eligibilityInModality,
+      eligibilityInConsumptionSubclass,
     ];
   }
 

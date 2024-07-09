@@ -6,7 +6,11 @@ import { EligibilityInConsumptionClass } from './services/eligibility-in-consump
 import { EligibilityInConsumption } from './services/eligibility-in-consumption.service';
 import { EligibilityInModality } from './services/eligibility-in-modality.service';
 import { CalculateAnnualSavings } from './services/calculate-annual-savings.service';
-import { clientDataValidator } from './validators/validators';
+import {
+  clientDataValidator,
+  documentValidator,
+} from './validators/validators';
+import { EligibilityInConsumptionSubclass } from './services/eligibility-in-consumption-subclass.service';
 
 @Module({
   imports: [],
@@ -16,11 +20,12 @@ import { clientDataValidator } from './validators/validators';
     EligibilityInConsumptionClass,
     EligibilityInConsumption,
     EligibilityInModality,
+    EligibilityInConsumptionSubclass,
     CalculateAnnualSavings,
     {
       provide: Validator,
       useFactory() {
-        return new Validator(clientDataValidator);
+        return new Validator([clientDataValidator, documentValidator]);
       },
     },
   ],

@@ -3,6 +3,7 @@ import { ClientData } from '../models/models';
 import {
   ConnectionType,
   ConsumerClass,
+  ConsumerSubclass,
   TariffModality,
 } from '../../../crosscut/constants';
 import { CalculateAnnualSavings } from './calculate-annual-savings.service';
@@ -22,6 +23,7 @@ describe('CalculateAnnualSavings', () => {
       numeroDoDocumento: '14041737706',
       tipoDeConexao: ConnectionType.TwoPhase,
       classeDeConsumo: ConsumerClass.Commercial,
+      subclasseDeConsumo: ConsumerSubclass.commercial,
       modalidadeTarifaria: TariffModality.Conventional,
       historicoDeConsumo: [
         3878, // mes atual

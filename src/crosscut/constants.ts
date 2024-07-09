@@ -22,6 +22,7 @@ export enum IneligibleReasons {
   UnacceptableConsumptionClass = 'Classe de consumo não aceita',
   UnacceptableModality = 'Modalidade tarifária não aceita',
   ConsumptionAverageUnderMinimum = 'Consumo muito baixo para tipo de conexão',
+  SubclassUnacceptable = 'Sub classe inelegível',
 }
 
 export enum ConsumerClass {
@@ -31,6 +32,22 @@ export enum ConsumerClass {
   Rural = 'rural',
   PublicPower = 'poderPublico',
 }
+
+export enum ConsumerSubclass {
+  condominiumAdministration = 'administracaoCondominial',
+  ruralAgriculture = 'agropecuariaRural',
+  lowIncome = 'baixaRenda',
+  commercial = 'comercial',
+  industrial = 'industrial',
+  statePublicPower = 'poderPublicoEstadual',
+  municipalPublicPower = 'poderPublicoMunicipal',
+  residential = 'residencial',
+  telecommunicationsServices = 'servicosDeTelecomunicacao',
+  transportationServices = 'servicosDeTransporte',
+  religiousTemples = 'templosReligiosos',
+}
+
+export const SubclassesDeConsumos = Object.values(ConsumerSubclass);
 
 export const ConsumerClasses = Object.values(ConsumerClass);
 

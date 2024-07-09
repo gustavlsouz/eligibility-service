@@ -5,6 +5,7 @@ import {
   cpf,
   IneligibleReasons,
   TariffModalities,
+  SubclassesDeConsumos,
 } from '../../../crosscut/constants';
 
 const enumOf = (values) => ({
@@ -21,11 +22,13 @@ export const input = {
     'classeDeConsumo',
     'modalidadeTarifaria',
     'historicoDeConsumo',
+    'subclasseDeConsumo',
   ],
   properties: {
     numeroDoDocumento: { oneOf: [cpf, cnpj] },
     tipoDeConexao: enumOf(ConnectionTypes),
     classeDeConsumo: enumOf(ConsumerClasses),
+    subclasseDeConsumo: enumOf(SubclassesDeConsumos),
     modalidadeTarifaria: enumOf(TariffModalities),
     historicoDeConsumo: {
       // em kWh

@@ -1,6 +1,7 @@
 import {
   ConnectionType,
   ConsumerClass,
+  ConsumerSubclass,
   TariffModality,
 } from '../../../crosscut/constants';
 
@@ -8,6 +9,7 @@ export class ClientData {
   numeroDoDocumento: string;
   tipoDeConexao: ConnectionType;
   classeDeConsumo: ConsumerClass;
+  subclasseDeConsumo: ConsumerSubclass;
   modalidadeTarifaria: TariffModality;
   historicoDeConsumo: number[];
 }

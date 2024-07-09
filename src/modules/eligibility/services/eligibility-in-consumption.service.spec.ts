@@ -4,6 +4,7 @@ import {
   ConnectionType,
   ConsumerClass,
   IneligibleReasons,
+  ConsumerSubclass,
   TariffModality,
 } from '../../../crosscut/constants';
 import { EligibilityInConsumption } from './eligibility-in-consumption.service';
@@ -25,6 +26,7 @@ describe('EligibilityInConsumption', () => {
       numeroDoDocumento: '14041737706',
       tipoDeConexao: ConnectionType.TwoPhase,
       classeDeConsumo: ConsumerClass.Commercial,
+      subclasseDeConsumo: ConsumerSubclass.commercial,
       modalidadeTarifaria: TariffModality.Conventional,
       historicoDeConsumo: [
         3878, // mes atual
